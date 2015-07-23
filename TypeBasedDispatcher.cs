@@ -36,12 +36,13 @@
 
 #endregion License
 
+
 using System;
 using System.Collections.Generic;
 
 namespace Utilities
 {
-    public sealed class TypeBasedDispatcher<TRes>
+    public class TypeBasedDispatcher<TRes>
     {
         private readonly Dictionary<Type, Func<Object, TRes>> _actions = new Dictionary<Type, Func<Object, TRes>>();
 
@@ -59,10 +60,40 @@ namespace Utilities
                 throw new ArgumentException("Action for type is already registered " + parameterType.AssemblyQualifiedName);
             }
 
-            _actions.Add(parameterType, x =>
-                                            {
-                                                return action((TArg)x);
-                                            });
+            _actions.Add(parameterType, 
+                x =>
+                {
+                    TArg arg = default(TArg);
+
+                    if (null != x)
+                    {
+                        arg = (TArg)x;
+                    }
+
+                    return action(arg);
+                });
+        }
+
+        public TRes DispatchForType(Type targetType)
+        {
+            if (null == targetType)
+            {
+                throw new ArgumentNullException("targetType");
+            }
+
+            Func<Object, TRes> action;
+
+            if (_actions.TryGetValue(targetType, out action))
+            {
+                return action(null);
+            }
+
+            throw new KeyNotFoundException(targetType.AssemblyQualifiedName);
+        }
+
+        public TRes DispatchForType<TArg>()
+        {
+            return DispatchForType(typeof(TArg));
         }
 
         public TRes Dispatch(Object arg)
@@ -80,10 +111,8 @@ namespace Utilities
             {
                 return action(arg);
             }
-            else
-            {
-                throw new KeyNotFoundException(parameterType.AssemblyQualifiedName);
-            }
+            
+            throw new KeyNotFoundException(parameterType.AssemblyQualifiedName);
         }
     }
 }

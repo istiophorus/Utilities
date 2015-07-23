@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BinaryEncoder.cs" />
     <Compile Include="BitsShifter.cs" />
     <Compile Include="EmptyArrayTemplate.cs" />
     <Compile Include="FasterRollingBuffer.cs" />
