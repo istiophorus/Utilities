@@ -54,6 +54,7 @@
     <Compile Include="IRollingBuffer.cs" />
     <Compile Include="NoMoreSecrets.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReflectionTools.cs" />
     <Compile Include="ResourcesTools.cs" />
     <Compile Include="RollingBufferDataAddedEventArgs.cs" />
     <Compile Include="TypeBasedDispatcher.cs" />
