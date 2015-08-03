@@ -37,6 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
@@ -48,6 +49,7 @@
   <ItemGroup>
     <Compile Include="BinaryEncoder.cs" />
     <Compile Include="BitsShifter.cs" />
+    <Compile Include="ConfigurationParameter.cs" />
     <Compile Include="EmptyArrayTemplate.cs" />
     <Compile Include="FasterRollingBuffer.cs" />
     <Compile Include="FasterRollingBufferGen.cs" />
@@ -58,6 +60,7 @@
     <Compile Include="ResourcesTools.cs" />
     <Compile Include="RollingBufferDataAddedEventArgs.cs" />
     <Compile Include="TypeBasedDispatcher.cs" />
+    <Compile Include="WritableConfigurationParameter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="utilities.pfx" />
