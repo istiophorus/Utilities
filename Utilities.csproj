@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArrayTools.cs" />
     <Compile Include="BinaryEncoder.cs" />
     <Compile Include="BitsShifter.cs" />
     <Compile Include="ConfigurationParameter.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="ResourcesTools.cs" />
     <Compile Include="RollingBufferDataAddedEventArgs.cs" />
     <Compile Include="TypeBasedDispatcher.cs" />
+    <Compile Include="Win32Api.cs" />
     <Compile Include="WritableConfigurationParameter.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -92,9 +92,6 @@ namespace Utilities
 			}
 		}
 
-		[DllImport("Kernel32.dll", EntryPoint = "CopyMemory")]
-		private static extern void CopyMemory(IntPtr pDest, IntPtr pSrc, int length);
-
 		private void BlockCopy(T[] src, Int32 sourceIndex, T[] dst, Int32 targetIndex, Int32 items)
 		{
 			GCHandle srcHandle = GCHandle.Alloc(src, GCHandleType.Pinned);
@@ -112,7 +109,7 @@ namespace Utilities
 					IntPtr srcOffset = IntPtr.Add(srcAddr, sourceIndex * _itemSize);
 					IntPtr dstOffset = IntPtr.Add(dstAddr, targetIndex * _itemSize);
 
-					CopyMemory(dstOffset, srcOffset, items * _itemSize);
+					Win32Api.Kernel32.CopyMemory(dstOffset, srcOffset, items * _itemSize);
 				}
 				finally
 				{
