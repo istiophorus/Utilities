@@ -48,11 +48,21 @@ namespace Utilities
 
         public Int32 ReadInt32Decoded(BinaryReader reader)
         {
+			if (null == reader)
+			{
+				throw new ArgumentNullException("reader");
+			}
+
             return (Int32)ReadUInt32Decoded(reader);
         }
 
         public UInt32 ReadUInt32Decoded(BinaryReader reader)
         {
+			if (null == reader)
+			{
+				throw new ArgumentNullException("reader");
+			}
+
             Byte firstByte = reader.ReadByte();
             
             // single byte
@@ -100,11 +110,21 @@ namespace Utilities
 
         public Int32 WriteInt32Encoded(BinaryWriter writer, Int32 value)
         {
+			if (null == writer)
+			{
+				throw new ArgumentNullException("writer");
+			}
+
             return WriteUInt32Encoded(writer, (UInt32)value);
         }
 
         public Int32 WriteUInt32Encoded(BinaryWriter writer, UInt32 value)
         {
+			if (null == writer)
+			{
+				throw new ArgumentNullException("writer");
+			}
+
             if (value < 0x80)
             {
                 writer.Write((Byte)value);
