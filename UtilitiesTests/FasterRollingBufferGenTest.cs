@@ -56,6 +56,16 @@ namespace Utilities.Tests
 
 				return Equals(oter);
 			}
+
+			public override Int32 GetHashCode()
+			{
+				return (Number << 8) ^ (OtherNumber << 16) ^ ((Int32)SomeByte);
+			}
+
+			public override String ToString()
+			{
+				return String.Format("[n:{0};on:{1};sb:{2}]", Number, OtherNumber, SomeByte);
+			}
 		}
 
 		private readonly Fixture _fixture = new Fixture();
