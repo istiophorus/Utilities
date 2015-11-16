@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArrayToolsSubarrayTests.cs" />
     <Compile Include="BinaryEncoderTests.cs" />
     <Compile Include="BitsShifterTests.cs" />
     <Compile Include="FasterRollingBufferGenTest.cs" />
