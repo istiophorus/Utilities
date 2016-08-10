@@ -46,6 +46,7 @@
     <Compile Include="ArrayToolsSubarrayTests.cs" />
     <Compile Include="BinaryEncoderTests.cs" />
     <Compile Include="BitsShifterTests.cs" />
+    <Compile Include="DynamicXmlWrapperTests.cs" />
     <Compile Include="FasterRollingBufferGenTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
